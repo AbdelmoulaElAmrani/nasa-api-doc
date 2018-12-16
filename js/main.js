@@ -169,7 +169,6 @@ function submitButtonsReady() {
 
                 document.getElementById('imageStatus').textContent = 'Found';
                 document.getElementById('imageID').src = response.photos[0].img_src;
-                document.getElementById('roverCaption').textContent = response.photos[0].rover.name;
                 document.getElementById('landingCaption').textContent = response.photos[0].rover.landing_date;
                 document.getElementById('endingCaption').textContent = response.photos[0].rover.max_date;
 

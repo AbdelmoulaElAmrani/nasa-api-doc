@@ -1,10 +1,9 @@
 body{
     font-family: 'Space Mono', monospace;
+    background-image: url("../img/gfwPusm.jpg");
+}
 
-}
-body , .container{
-    background-image: url("img/gfwPusm.jpg");
-}
+
 .img-ofDay , .Neo , .MarsPhoto , .epic{
     border-bottom: red solid 1px;
 }
@@ -48,6 +47,7 @@ h1 , p {
 .tabs{
     background:black;
     height: 27px;
+    z-index: 2;
 }
 .secondTab{
     margin-left:  150px;
@@ -87,14 +87,6 @@ section{
 }
 
 
-
-#logo{
-    position: absolute;
-    top: 200px;
-    left: 539px;
-    width: 200px;
-}
-
 .about{
     font-family: 'Space Mono', monospace;
 
@@ -102,6 +94,7 @@ section{
 .container{
     background: black;
     color: white;
+    z-index: 2;
 }
 
 /*//blink*/
@@ -110,16 +103,14 @@ h4{
     white-space: nowrap;
     overflow: hidden;
     width: 0;
+    color: #e1f0e3;
+    z-index: 2;
+    position: relative;
+    bottom: 40px;
+    animation: type .5s 1s steps(20, end) forwards;
 
 }
-.lineType{
-    color: #e1f0e3;
-    animation: type .5s 1s steps(20, end) forwards;
-}
-.lineType2{
-    color: #e1f0e3;
-    animation: type 1s 2s steps(20, end) forwards;
-}
+
 @keyframes type {
     to {
         width: 100%;
@@ -164,6 +155,13 @@ h4{
         opacity: 0;
     }
 }
+#tab1 img{
+    width: 100% ;
+
+    z-index: 2;
+
+}
+
 
 .code{
     padding: 0 5px;
@@ -172,4 +170,13 @@ h4{
     color: #000022;
     font-family: 'Source Code Pro', monospace;
 
+}
+#bgCanvas {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    /* background: black; */
 }
