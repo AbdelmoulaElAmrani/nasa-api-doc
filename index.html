@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <ul class="tabs " data-tabgroup="first-tab-group">
+        <li><a href="#tab1" class="active">HOME</a></li>
+        <li><a href="#tab2">POD</a></li>
+        <li><a href="#tab3">NEO</a></li>
+        <li><a href="#tab4">Mars</a></li>
+        <li><a href="#tab5">EPIC</a></li>
+    </ul>
+
+    <section id="first-tab-group" class="tabgroup">
+        <div id="tab1">
+            <img  style="width: 100% ; position: relative ; bottom: 21px;" src="img/Qf1N28h.jpg">
+
+            <img id="logo" src="img/logo.png">
+            <div class="container about">
+                <h4 class="lineType">HELLO AND WELCOME TO YOUR NASA</h4>
+                <h4 class="lineType2"> API GUIDE &rdquo;
+                    ,<span class="cursor1">_</span></h4>
+                <p><strong>GET STARTED:</strong> Before you begin setting up your JavaScript AJAX requests,
+                    you need to obtain a developer key for the NASA API. Even though the NASA API is mostly public domain
+                    it still requires an API key to monitor the amount of usage a developer is demanding.
+                    Registration for the NASA API is currently well documented and
+                    can be accomplished at the following link: <a target="_blank" href="https://api.nasa.gov/index.html#apply-for-an-api-key">HERE</a> <br>
+                    After getting your key navigate thought the tabs on the TOP and choose what fits your project , I did provide {: CODE :} examples to make it easy for you ;) ,
+                </p>
+                <br>
+                <p><strong>ABOUT NASA API PROJECT:</strong> A Open Innovation team to continue NASA’s efforts to meet the White House
+                    mandate to set our data free – in a format that is useful for you. In doing so,
+                    we hope to spark your creative juices and equip you with tools to innovate your world –
+                    whether local, global, or interstellar – leveraging our digital assets. We may not be able to offer
+                    you the ride-of-your-life on a spaceship (at least for now), but we
+                    can certainly work together to solve looming challenges here on Earth – using NASA data, tools, and resources.
+                </p>
+                <br>
+                <p><strong>ABOUT MY PROJECT:</strong> I mad this to make it easy on any one whose working on NASA api project
+                especially for school for saving time, while navigating the documentation on NASA api website
+                    I didn't find it helpful by not providing examples on results of the api
+                    so i decided to do this! open source and examples on results of the API .
+                    Hope this will help you decide which api listing fits your project. :)
+                </p><br>
+
+                <p><strong>NOTE:</strong> I'm still working on this project and my goal is to document all what you can get from NASA'a api , if you have any suggestions , notes , or advices on this particular project reach out to me on Linkedin.
+                </p><br>
+            </div>
+        </div>
+
+        <div id="tab2">
+            <div class="row img-ofDay">
+                <div class="col s12">
+
+                    <h2>ASTRONOMY PICTURE OF THE DAY
+                    </h2>
+                </div>
+                <div class="col s12">
+
+                    <img id="apod_img_ofDay" />
+                </div>
+                <div class="col s12">
+
+
+                    <h3 id="apod_title"></h3>
+                    <p id="apod_explaination"></p>
+                </div>
+                <div class="col s12">
+
+                    <p><strong>About: </strong>Discover the cosmos! Each day a different image or photograph of
+                        our fascinating universe is featured, along with a brief explanation
+                        written by a professional astronomer.
+                    </p>
+
+                </div>
+            </div>
+            <div class="row codeSection">
+
+                <h2>{: CODE :}</h2>
+
+                <p><strong>First </strong> we set the request to the api</p>
+
+                <div class="col  s8 offset-s4 code">
+                    <p>$.ajax({</p>
+                    <p>let: url ="https://api.nasa.gov/planetary/apod?api_key="+ apiKey ,</p>
+                    <p>            url: url,</p>
+                    <p>success: function success(result)</p>
+                    <p>{</p>
+
+                    <p>//Sometime they post video too//</p>
+                    <p>if(result.media_type == "video") {</p>
+                    <p>$("#apod_img_ofDay").css("display", "none");</p>
+                    <p>$("#apod_vid_id").attr("src", result.url);</p>
+                    <p>}</p>
+                    <p>else {</p>
+                    <p>$("#apod_vid_id").css("display", "none");</p>
+                    <p>$("#apod_img_ofDay").attr("src", result.url);</p>
+                    <p>}</p>
+                    <p>$("#apod_explaination").text(result.explanation);</p>
+                    <p>$("#apod_title").text(result.title);</p>
+                    <p>}</p>
+                    <p>});</p>
+                </div>
+                <div class="col s12">
+                    <h3>This is what you need for HTML</h3>
+                    <p><strong>#apod_img_ofDay</strong> This id for the picture that we are getting</p>
+                    <p><strong>#apod_vid_id</strong> This id for video , they're generous sometimes</p>
+
+                    <p><strong>#apod_explaination</strong> This id for the picture description</p>
+                    <p><strong>#apod_title</strong> This id for the picture title</p>
+                    <p>...</p>
+                    <strong>The CSS is up to your creativity ... see you in the next section</strong>
+                    <br>
+                </div>
+
+            </div>
+
+        </div>
+        
+        
+        <div id="tab3">
+            <div class="row Neo">
+                <div class="col s12">
+
+                    <h2> Neo - Feed</h2>
+                    <div class="neoFeed">
+
+                    </div>
+                    <p></p>
+                </div>
+
+
+                <div class="col s12">
+
+                    <p><strong>About: </strong>Retrieve a list of Asteroids based on their closest approach date to Earth
+                    </p>
+
+                </div>
+            </div>
+                <div class="row codeSection">
+
+                    <h2>{: CODE :}</h2>
+                    <p><strong>First </strong> we set the request to the api</p>
+                    <div class="col  s8 offset-s4 code">
+                        <p>      // getting today date for using it on the api url</p>
+                        <p>      let newDate = new Date();</p>
+                        <p>      let today = newDate.toJSON().slice(0,10).replace(/-/g,'-');</p>
+                        <p>      function addDays(dateObj, numDays) {</p>
+                        <p>      dateObj.setDate(dateObj.getDate() - numDays);</p>
+                        <p>      return dateObj;</p>
+                        <p>      }</p>
+
+                        <p>      let sevenDaysLess = addDays(new Date() , 7).toJSON().slice(0,10).replace(/-/g,'-');</p>
+
+                        <p>      //</p>
+
+                        <p>      //Neo Feed TAble</p>
+                        <p>      $.ajax({</p>
+                        <p>      let: url ="https://api.nasa.gov/neo/rest/v1/feed?start_date="+sevenDaysLess +"&end_date="+ today+"&api_key="+ apiKey ,</p>
+                        <p>      url: url,</p>
+                        <p>      success: function success(result) {</p>
+                        <p>      // console.log(result.near_earth_objects)</p>
+                        <p>  let tableHtml = `<-table > </p>
+                        <p>      <-thead><-/thead>
+                        <p>      <-tr> </p>
+                        <p>          <-th>id<-/th></p>
+                        <p>          <-th>name<-/th></p>
+                        <p>          <-th>close approach date<-/th></p>
+                        <p>          <-th>orbiting body<-/th></p>
+                        <p>          <-th>miss distanclet: miles<-/th></p>
+
+                        <p>      <-/tr></p>
+                        <p>      <-/thead></p>
+                        <p>      <-tbody>`</p>
+                        <p>      //for loop deep to the data</p>
+                        <p>      for (let earthOject in result.near_earth_objects) {</p>
+                        <p>      if (earthOject === today) {</p>
+                        <p>      // console.log(result.near_earth_objects[earthOject]);</p>
+                        <p>      for (let i = 0; i < result.near_earth_objects[earthOject].length; i++) {</p>
+                        <p>      let neoId = result.near_earth_objects[earthOject][i].neo_reference_id;</p>
+                        <p>      let neoName = result.near_earth_objects[earthOject][i].name;</p>
+                        <p>      let close_approach_date = result.near_earth_objects[earthOject][i].close_approach_data[0].close_approach_date;</p>
+                        <p>      let orbiting_body = result.near_earth_objects[earthOject][i].close_approach_data[0].orbiting_body;</p>
+                        <p>      let miss_distanclet = result.near_earth_objects[earthOject][i].close_approach_data[0].miss_distance.miles;</p>
+
+                        <p>      //adding data to the table row's</p>
+                        <p>  tableHtml += `<-tr><-/tr>
+                        <p>          <-td>${neoId}<-/td></p>
+                        <p>          <-td>${neoName}<-/td></p>
+                        <p>          <-td>${close_approach_date}<-/td></p>
+                        <p>          <-td>${orbiting_body}<-/td></p>
+                        <p>          <-td>${miss_distanclet}<-/td></p>
+                        <p>      <-/tr>`</p>
+                        <p>      }</p>
+                        <p>      }</p>
+                        <p>      }//end of for loop</p>
+
+                        <p>   tableHtml += `<-/tbody>`</p>
+
+                        <p>       $('.neoFeed').append(tableHtml);</p>
+
+                        <p>       }</p>
+
+                        <p>       });</p>
+                    </div>
+                    <div class="col s12">
+
+                        <h3>This is what you need for HTML</h3>
+                        <p>Note: don't forget to take off the dashes (-) in javascript HTML build</p>
+
+                        <p>All you need now is div with an id of <strong>#neoFeed</strong></p>
+
+                        <p>...</p>
+                        <strong>The CSS is up to your creativity ... see you in the next section</strong>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+        
+        
+        <div id="tab4">
+            <div class="row MarsPhoto">
+                <h2>MARS ROVER </h2>
+                <div class="col s6">
+                    Chouse a Date:
+                    <div class="input-field inline">
+                        <input id="dateValue" type="date" class="validate">
+                        <label for="dateValue">date</label>
+                    </div>
+
+                    <form action="#">
+                        <p>
+                            <label>
+                                <input id="button1" name="group1" type="radio" checked />
+                                <span>Curioustity</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input id="button2" name="group1" type="radio" />
+                                <span>Opportunity</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input id="button3" class="with-gap" name="group1" type="radio"  />
+                                <span>Spirit</span>
+                            </label>
+                        </p>
+
+                    </form>
+                    <a class="waves-effect waves-light btn" id="dateInput">look</a>
+                    <p><strong>NOTE:</strong> Most rovers did not start taking photos until several days after landing.
+                        Curiosity landed on: 2012-08-06
+                        Opportunity landed on: 2004-01-25
+                        Spirit landed on: 2004-01-04</p>
+                    <span>Image Retrieval Status:<strong  id="imageStatus"></strong> </span>
+                </div>
+                <div class="col s6">
+                    <img id="imageID" style="width: 100%">
+                </div>
+                <div class="col s12">
+
+                    <p><strong>About: </strong>collection of images gathered by NASA's Curiosity, Opportunity, and Spirit rovers on Mars and make it more easily available to other developers, educators, and citizen scientists. This API is maintained by Chris Cerami.
+
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="row codeSection">
+
+                <h2>{: CODE :}</h2>
+                <p><strong>First </strong> we set the request to the api</p>
+
+                <div class="col  s8 offset-s4 code">
+                    <p> // Mars Rover API with a different approach by a direct browser request </p>
+
+                   <p> let exampleURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-10-31" ;</p>
+
+
+                   <p> let request = new XMLHttpRequest();</p>
+                   <p> request.open('GET', exampleURL + '&api_key=' + apiKey, true);</p>
+
+                    <p>request.addEventListener('load',function(){</p>
+
+                   <p> if(request.status >= 200 && request.status < 400){</p>
+                   <p>     let response = JSON.parse(request.responseText);</p>
+                   <p> }</p>
+                   <p> else {</p>
+                   <p>     console.log("Error in network request: " + request.statusText);</p>
+                    <p>}});</p>
+                    <p>request.send(null);</p>
+
+
+                    <p>//Rover API Implementation</p>
+
+                    <p>  document.addEventListener('DOMContentLoaded', submitButtonsReady);</p>
+
+                    <p>function submitButtonsReady() {</p>
+                    <p>document.getElementById('dateInput').addEventListener('click', function (event) {</p>
+                    <p>// console.log('1');</p>
+
+                    <p>    let request = new XMLHttpRequest();</p>
+                    <p>    let date = document.getElementById('dateValue').value;</p>
+                    <p>    let roverName = "";</p>
+
+                    <p>    let buttonStatus1 = document.getElementById('button1').checked;</p>
+                    <p>    let buttonStatus2 = document.getElementById('button2').checked;</p>
+                    <p>    let buttonStatus3 = document.getElementById('button3').checked;</p>
+
+                    <p>if (buttonStatus1 === true) {</p>
+                    <p>    roverName = "curiosity";</p>
+                    <p>}
+                    <p>else if (buttonStatus2 === true) {</p>
+                    <p>    roverName = "opportunity";</p>
+                    <p>}</p>
+                    <p>else {</p>
+                    <p>    roverName = "spirit";</p>
+                    <p>}</p>
+                    <p>request.open('GET', 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + roverName + '/photos?earth_date=' + date + '&api_key=' + apiKey, true);</p>
+                    <p>request.addEventListener('load', function () {</p>
+                    <p>if (request.status >= 200 && request.status < 400) {</p>
+                    <p>    let response = JSON.parse(request.responseText);</p>
+
+                    <p>// Appending Rover Data</p>
+
+                    <p>document.getElementById('imageStatus').textContent = 'Found';</p>
+                    <p>    document.getElementById('imageID').src = response.photos[0].img_src;</p>
+                    <p>    document.getElementById('roverCaption').textContent = response.photos[0].rover.name;</p>
+                    <p>    document.getElementById('landingCaption').textContent = response.photos[0].rover.landing_date;</p>
+                    <p>    document.getElementById('endingCaption').textContent = response.photos[0].rover.max_date;</p>
+
+                    <p>}</p>
+                    <p>else {</p>
+                    <p>    console.log("Error in network request: " + request.statusText);</p>
+                    <p>}</p>
+                    <p>});</p>
+                    <p>document.getElementById('imageStatus').textContent = 'Please try a different date or check your syntax!';</p>
+                    <p>request.send(null);</p>
+                    <p>event.preventDefault();</p>
+                    <p>})</p>
+
+                </div>
+
+                <div class="col s12">
+                    <h3>This is what you need for HTML</h3>
+                    <p><strong>#imageStatus</strong> This id for the picture </p>
+                    <p><strong>#roverCaption</strong> This id for a description</p>
+
+                    <p><strong>#landingCaption</strong> This id for the landing date</p>
+                    <p><strong>#endingCaption</strong> This id for the ending date</p>
+                    <p>...</p>
+                    <strong>The CSS is up to your creativity ... see you in the next section</strong>
+                    <br>
+                </div>
+
+            </div>
+
+        </div>
+        
+        
+        <div id="tab5">
+            <div class="row epic">
+                <div class="col s6">
+                    <h2>EPIC API</h2>
+                    Chouse a Date:
+                    <div class="input-field inline">
+                        <input id="epicDateValue" type="date" class="validate">
+                        <label for="epicDateValue">date</label>
+                    </div>
+                    <a class="waves-effect waves-light btn" id="epicDateInput" onclick="">look</a>
+                    <p>TIP: The first acquired images start on 2015-09-01</p>
+
+                    <p>Image Result <span></span></p>
+                    <p>Image Retrieval Status: <span id="epicImageStatus"></span></p>
+                    <p>Image Caption: <span id="epicImageCaption"></span></p>
+                </div>
+                <div class="col s6">
+                    <img id="epicImageID" width="100%">
+                </div>
+                <div class="col s12">
+
+                    <p><strong>About: </strong>The EPIC API provides information on the daily imagery collected by
+                        DSCOVR's Earth Polychromatic Imaging Camera (EPIC) instrument.
+                        Uniquely positioned at the Earth-Sun Lagrange point,
+                        EPIC provides full disc imagery of the Earth and captures unique perspectives of certain astronomical
+                        events such as lunar transits using a 2048x2048 pixel CCD (Charge Coupled Device) detector coupled
+                        to a 30-cm aperture Cassegrain telescope.
+                    </p>
+
+                </div>
+            </div>
+                <div class="row codeSection">
+
+                    <h2>{:{: CODE :}:}</h2>
+
+                    <div class="col  s8 offset-s4 code">
+
+                        <p>  document.addEventListener('DOMContentLoaded', submitEpicButtonsReady);</p>
+
+                      <p>  function submitEpicButtonsReady(){</p>
+                      <p>  // document.getElementById('epicDateInput').addEventListener('click', function(event){</p>
+                      <p>  document.getElementById('epicDateInput').addEventListener('click', function(event){</p>
+
+                     <p>       let request = new XMLHttpRequest();</p>
+
+
+                     <p>       let date = document.getElementById('epicDateValue').value;</p>
+                     <p>       let dateArray = date.split("-");</p>
+                      <p>      let year = dateArray[0];</p>
+                      <p>      let month = dateArray[1];</p>
+                      <p>      let day = dateArray[2];</p>
+
+                      <p>      request.open('GET', 'https://api.nasa.gov/EPIC/api/natural/date/' + date + '?api_key=' + apiKey, true);</p>
+                      <p>  request.addEventListener('load',function(){</p>
+                      <p>  if(request.status >= 200 && request.status < 400){</p>
+
+                       <p>     let response = JSON.parse(request.responseText);</p>
+
+                       <p> if(typeof(response[0].image) === 'string')</p>
+                       <p> {</p>
+                       <p>     document.getElementById('epicImageStatus').textContent = 'Found';</p>
+                       <p>     document.getElementById('epicImageID').src = 'https://epic.gsfc.nasa.gov/archive/natural/' + year + '/' + month + '/' + day + '/jpg/' + response[0].image + '.jpg';</p>
+                       <p>     document.getElementById('epicImageCaption').textContent = response[0].caption;</p>
+                       <p> }</p>
+                       <p> }</p>
+                       <p> else</p>
+                       <p> {</p>
+
+                       <p> }});</p>
+                        <p>document.getElementById('epicImageStatus').textContent = 'Please try a different date or check your syntax!';</p>
+                        <p>request.send(null);</p>
+                        <p>event.preventDefault();</p>
+                        <p>})</p>
+
+                        <p>}</p>
+
+                    </div>
+                    </div>
+                    <div class="col s12">
+                        <h3>This is what you need for HTML</h3>
+                        <p><strong>apod_title</strong> This id for the picture title</p>
+
+                        <p><strong>#epicImageID</strong> This id for the picture </p>
+                        <p><strong>#epicImageStatus</strong> This id for status</p>
+
+                        <p><strong>#epicImageCaption</strong> This id for the picture description</p>
+                        <p>...</p>
+                        <strong>The CSS is up to your creativity ... see you in the next section</strong>
+                        <br>
+                    </div>
+
+                </div>
+
+
+
+        
+        
+    </section>
+    <footer>
+        <a href="https://www.linkedin.com/in/el-amrani/">Linkedin</a>
+        <a style="float: right" href="https://github.com/AbdelmoulaElAmrani">Github</a>
+
+    </footer>
+</div>
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

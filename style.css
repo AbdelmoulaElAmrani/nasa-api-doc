@@ -1,0 +1,175 @@
+body{
+    font-family: 'Space Mono', monospace;
+
+}
+body , .container{
+    background-image: url("img/gfwPusm.jpg");
+}
+.img-ofDay , .Neo , .MarsPhoto , .epic{
+    border-bottom: red solid 1px;
+}
+.img-ofDay #apod_img_ofDay {
+    width : 100%;
+    display: block;
+    margin: 20% 0;
+}
+
+.img-ofDay h3 ,.img-ofDay h2 {
+    text-align: center;
+}
+
+/*tabs*/
+
+.wrapper {
+    margin:30px auto;
+    width:80%;
+    font-family:sans-serif;
+    color:#555;
+    font-size:14px;
+    line-height:24px;
+}
+h1 {
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+    text-transform:uppercase;
+}
+h2{
+    text-align: center;
+}
+
+ul{
+    text-align: center;
+}
+h1 , p {
+    margin:20px 0;
+    font-size:16px;
+}
+.tabs{
+    background:black;
+    height: 27px;
+}
+.secondTab{
+    margin-left:  150px;
+
+}
+.tabs li {
+    float:left;
+    width:20%;
+    font-size: larger;
+    background: black;
+}
+input{
+    color: #cccccc;
+}
+strong{
+    font-size:xx-large ;
+}
+a{
+    color: rgb(255, 255, 255);
+}
+.tab li a {
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    text-transform:uppercase;
+    padding:20px 0;
+
+}
+.borderbtm{
+    border-bottom: 30px solid #1166b4;
+}
+
+
+section{
+    text-align: left;
+    margin-top: 20px;
+}
+
+
+
+#logo{
+    position: absolute;
+    top: 200px;
+    left: 539px;
+    width: 200px;
+}
+
+.about{
+    font-family: 'Space Mono', monospace;
+
+}
+.container{
+    background: black;
+    color: white;
+}
+
+/*//blink*/
+
+h4{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+
+}
+.lineType{
+    color: #e1f0e3;
+    animation: type .5s 1s steps(20, end) forwards;
+}
+.lineType2{
+    color: #e1f0e3;
+    animation: type 1s 2s steps(20, end) forwards;
+}
+@keyframes type {
+    to {
+        width: 100%;
+    }
+}
+
+.cursor1 {
+    animation: blink 1s 2s 2 forwards;
+}
+@keyframes blink  {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.code{
+    padding: 0 5px;
+    border-left: #5900b6 solid 5px;
+    background: whitesmoke;
+    color: #000022;
+    font-family: 'Source Code Pro', monospace;
+
+}
